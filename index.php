@@ -1,21 +1,15 @@
 <?php get_header(); ?>
-<?php
-if ( have_posts() ):
-while( have_posts() ): the_post(); ?> 
 
-<h3><?php the_title(); ?></h3>
-<div class="thumbnail-img"><?php the_post_thumbnail ('thumbnail'); ?></div>
-<small>Opublikowany <?php the_time( 'F y, M' ) ?> w <?php the_time( 'g:i a' ) ?> w <?php the_category(); ?> </small>
-<p><?php the_content(); ?></p>
+    <?php
+    if ( have_posts() ):
 
-<hr>
+        while( have_posts() ): the_post(); ?> 
+ <?php get_template_part( 'content', get_post_format()); ?>
 <?php
     endwhile;
 endif; 
 
 ?>
-
-
 
 <?php get_footer(); ?>
 
